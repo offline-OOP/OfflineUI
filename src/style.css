@@ -1,0 +1,18 @@
+@import 'assets/icons/css/offline-icon.css';
+
+:root {
+    --color-accent: #FF6038;
+    --color-secondary: #E9EFF0;
+    --color-primary: #FFB677;
+    --color-info: #5F6CAF;
+    --color-success: #89E37A;
+    --color-warning: #FBFF38;
+    --color-danger: #FD3604;
+    --color-white: #FFFFFF;
+    --color-black: #333333;
+    --color-gray: #C4C4C4;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
