@@ -6,4 +6,5 @@ babel.config.js
 /src/quasar-extension
 tailwind.config.js
 postcss.config.js
+/storybook-static
 

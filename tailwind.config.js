@@ -4,7 +4,10 @@ const tailwindFormsPlugin = require('@tailwindcss/forms');
 const tailwindScrollbarHidePlugin = require('tailwind-scrollbar-hide');
 
 module.exports = {
-  purge: [],
+  purge: [
+      './src/**/*.vue',
+      './src/components/**/*.color.js'
+  ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {},
