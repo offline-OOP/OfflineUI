@@ -6,7 +6,7 @@
     <label v-if="icon" :for="id">
       <icon
         :id="`icon-${id}`"
-        :name="icon"
+        :value="icon"
         class="text-xl ml-1"
         :class="getScheme('icon')"
       />
@@ -24,46 +24,50 @@
 </template>
 
 <script>
-import {InputScheme as scheme} from "./Input.color";
-import Color from "../../mixins/Color"
-import {oneOfArray} from "../../utils/props.validators";
-import Icon from "../Icon/Icon";
+import scheme from './Input.color';
+import ColorScheme from '../../mixins/ColorScheme';
+import { oneOfArray } from '../../utils/props.validators';
+import Icon from '../Icon/Icon';
 
-export const types = ['text', 'email', 'tel', 'date', 'datetime-local', 'file', 'url', 'password']
+export const types = ['text', 'email', 'tel', 'date', 'datetime-local', 'file', 'url', 'password'];
+
+const autocomplete = {
+  type: Boolean,
+  default: true,
+};
+
+const autofocus = {
+  type: Boolean,
+  default: false,
+};
 
 const id = {
-  type: String
-}
+  type: String,
+};
 const type = {
   type: String,
   validator: (value) => {
-    oneOfArray(types)
-  }
-}
-const color = scheme.prop
+    oneOfArray(types);
+  },
+};
+const color = scheme.prop;
 
 const icon = {
-  type: String
-}
+  type: String,
+};
 const placeholder = {
-  type: String
-}
-const autofocus = {
-  type: Boolean,
-  default: false
-}
-const autocomplete = {
-  type: Boolean,
-  default: true
-}
+  type: String,
+};
 
 export default {
-  name: "Input",
-  components: {Icon},
-  mixins: [Color],
-  props: { id, type, color, icon, placeholder, autofocus, autocomplete },
+  name: 'Input',
+  components: { Icon },
+  mixins: [ColorScheme],
+  props: {
+    id, type, color, icon, placeholder, autofocus, autocomplete,
+  },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

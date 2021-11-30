@@ -1,20 +1,24 @@
 <template>
-  <input class="rounded-full h-8 w-8 border"
-         :class="getScheme()" type="checkbox" disabled />
+  <input
+    class="rounded-full h-8 w-8 border"
+    :class="getScheme()"
+    type="checkbox"
+    disabled
+  />
 </template>
 
 <script>
-import {StepScheme as scheme} from "./Step.color";
-import Color from "../../mixins/Color"
+import scheme from './Step.color.ts';
+import ColorScheme from '../../mixins/ColorScheme.vue';
+
+const color = scheme.prop;
 
 export default {
-  name: "Step",
-  mixins: [Color],
-  props: {
-    color: scheme.prop
-  },
+  name: 'Step',
+  mixins: [ColorScheme],
+  props: { color },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

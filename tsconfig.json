@@ -1,0 +1,10 @@
+{
+  "extends": "@quasar/app/tsconfig-preset",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "checkJs": false,
+    "experimentalDecorators": true,
+    "target": "ES2018",
+    "useDefineForClassFields": true
+  }
+}

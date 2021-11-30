@@ -8,27 +8,27 @@
 </template>
 
 <script>
-import {NavigationItemScheme as scheme} from "./NavigationItem.color.js";
-import Color from "../../mixins/Color";
-import Icon from "../Icon/Icon";
+import scheme from './NavigationItem.color.ts';
+import ColorScheme from '../../mixins/ColorScheme';
+import Icon from '../Icon/Icon';
 
 const icon = {
-  type: String
-}
+  type: [String, Number],
+};
 const to = {
-  type: String
-}
-const color = scheme.prop
+  type: String,
+};
+const color = scheme.prop;
 
 export default {
-  name: "NavigationItem",
-  components: {Icon},
-  mixins: [Color],
+  name: 'NavigationItem',
+  components: { Icon },
+  mixins: [ColorScheme],
   props: {
-    icon, to, color
+    icon, to, color,
   },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

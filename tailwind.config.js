@@ -1,12 +1,17 @@
+
+
+const tailwindFormsPlugin = require('@tailwindcss/forms');
+const tailwindScrollbarHidePlugin = require('tailwind-scrollbar-hide');
+
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {},
     fontFamily: {
       montserrat: ['Montserrat'],
       openSans: ['Open Sans'],
-      lena: ['Montserrat']
+      lena: ['Montserrat'],
     },
     colors: {
       accent: 'var(--color-accent)',
@@ -19,18 +24,18 @@ module.exports = {
       white: 'var(--color-white)',
       black: 'var(--color-black)',
       transparent: 'transparent',
-      gray: 'var(--color-gray)'
-    }
+      gray: 'var(--color-gray)',
+    },
   },
   variants: {
     extend: {
       backgroundColor: ['checked', 'last', 'active', 'disabled'],
       textColor: ['active', 'disabled'],
-      display: ['last']
+      display: ['last'],
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('tailwind-scrollbar-hide')
+    tailwindFormsPlugin,
+    tailwindScrollbarHidePlugin,
   ],
-}
+};

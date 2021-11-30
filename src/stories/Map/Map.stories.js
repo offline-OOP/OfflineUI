@@ -1,48 +1,37 @@
-import {default as Map} from "../../components/Map/Map";
-import {default as MapMarker} from "../../components/Map/MapMarker";
-import { load } from '@2gis/mapgl';
-import {ACCENT, GRAY, INFO, SUCCESS} from "../../utils/ColorSchemeManager";
+import Map from '../../components/Map/Map';
+import MapMarker from '../../components/Map/MapMarker';
+import {
+  ACCENT, GRAY, INFO, SUCCESS,
+} from '../../utils/ColorSchemeManager';
 
 export default {
-    title: 'Компоненты/Map/Map',
-    component: Map,
-    argTypes: {}
-}
+  title: 'Компоненты/Map/Map',
+  component: Map,
+  argTypes: {},
+};
 
 export const Default = () => ({
-    components: {Map, MapMarker},
-    data: () => ({
-        loadMapApi: false,
-        mapApi: null,
-        accent: ACCENT,
-        info: INFO,
-        success: SUCCESS,
-        gray: GRAY
-    }),
-    mounted() {
-        load().then((api) => {
-            this.mapApi = api
-            this.loadMapApi = true
-        });
-    },
-    template: `
+  components: { Map, MapMarker },
+  data: () => ({
+    accent: ACCENT,
+    info: INFO,
+    success: SUCCESS,
+    gray: GRAY,
+  }),
+  template: `
       <div class="h-screen w-full">
-        <Map v-if="loadMapApi" :map-api="mapApi">
+        <Map>
           <template #controller/>
-          <template #markers="{map}">
 
-            <template v-if="map && mapApi">
-              <MapMarker :map="map" :coordinates="[55.31878, 25.21584]" sponsor :map-api="mapApi" :color="info"/>
-              <MapMarker :map="map" :coordinates="[55.31878, 25.23584]" :map-api="mapApi" :color="info"/>
-              <MapMarker :map="map" :coordinates="[55.31140, 25.23584]" :map-api="mapApi" :color="accent"/>
-              <MapMarker :map="map" :coordinates="[55.32878, 25.23584]" :map-api="mapApi" :color="gray"/>
-              <MapMarker :map="map" :coordinates="[55.34878, 25.23584]" :map-api="mapApi" :color="success"/>
-            </template>
-            <p v-else>load...</p>
-
+          <template v-if="$store.getters['map/hasMap']">
+            <MapMarker :coords="[55.31878, 25.21584]" sponsor :color="info"/>
+            <MapMarker :coords="[55.31878, 25.23584]" :color="info"/>
+            <MapMarker :coords="[55.31140, 25.23584]" :color="accent"/>
+            <MapMarker :coords="[55.32878, 25.23584]" :color="gray"/>
+            <MapMarker :coords="[55.34878, 25.23584]" :color="success"/>
           </template>
+
         </Map>
-        <p v-else>load...</p>
       </div>
-    `
-})
+    `,
+});

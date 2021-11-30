@@ -1,26 +1,26 @@
-import {default as MapController} from "../../components/Map/MapController";
-import {MapControllerScheme as scheme} from "../../components/Map/MapController.color.js";
-import {WHITE} from "../../utils/ColorSchemeManager";
+import MapController from '../../components/Map/MapController';
+import scheme from '../../components/Map/MapController.color';
+import { WHITE } from '../../utils/ColorSchemeManager';
 
 export default {
-    title: 'Компоненты/Map/MapController',
-    component: MapController,
-    argTypes: {
-        color: {
-            control: {type: 'select'},
-            options: scheme.colors
-        },
-    }
-}
+  title: 'Компоненты/Map/MapController',
+  component: MapController,
+  argTypes: {
+    color: {
+      control: { type: 'select' },
+      options: scheme.colors,
+    },
+  },
+};
 
 export const Default = (args) => ({
-    components: {MapController},
-    setup: () => ({...args}),
-    template: `
+  components: { MapController },
+  setup: () => ({ ...args }),
+  template: `
       <MapController :active-action='activeAction' :color="color" />
-    `
-})
+    `,
+});
 Default.args = {
-    color: WHITE,
-    activeAction: 'filter'
-}
+  color: WHITE,
+  activeAction: 'filter',
+};

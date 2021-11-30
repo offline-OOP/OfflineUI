@@ -1,23 +1,31 @@
 <template>
-  <Input id="search" autofocus :autocomplete="false" :color="color" type="text" placeholder="Search..." color="" class="ring-1 ring-gray" />
+  <Input
+    id="search"
+    class="ring-1 ring-gray"
+    autofocus
+    :autocomplete="false"
+    :color="color"
+    type="text"
+    placeholder="Search..."
+  />
 </template>
 
 <script>
-import {InputScheme as scheme} from "../Input/Input.color";
-import Color from "../../mixins/Color";
-import Input from "../Input/Input"
+import scheme from '../Input/Input.color';
+import ColorScheme from '../../mixins/ColorScheme';
+import Input from '../Input/Input';
 
-const color = scheme.prop
+const color = scheme.prop;
 
 export default {
-  name: "Search",
-  components: {Input},
-  mixins: [Color],
+  name: 'Search',
+  components: { Input },
+  mixins: [ColorScheme],
   props: {
-    color
+    color,
   },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

@@ -1,18 +1,18 @@
 <template>
-  <i v-if="typeof name === 'number'" class="ico text-lena">{{name}}</i>
-  <i v-else :class="`icon-${name}`" class="ico"/>
+  <i v-if="typeof value === 'number'" class="ico text-lena">{{value}}</i>
+  <i v-else :class="`icon-${value}`" class="ico"/>
 </template>
 
 <script>
-export default  {
-  name: "Icon",
+export default {
+  name: 'Icon',
   props: {
-    name: {
+    value: {
       type: [String, Number],
-      default: 'place'
-    }
-  }
-}
+      default: 'place',
+    },
+  },
+};
 </script>
 
 <style lang="css" scoped>

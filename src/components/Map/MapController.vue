@@ -14,29 +14,31 @@
 </template>
 
 <script>
-import {MapControllerScheme as scheme} from "./MapController.color.js";
-import Color from "../../mixins/Color";
-import FloatBtn from "../FloatBtn/FloatBtn";
-import Icon from "../Icon/Icon";
+import scheme from './MapController.color';
+import ColorScheme from '../../mixins/ColorScheme';
+import FloatBtn from '../FloatBtn/FloatBtn';
+import Icon from '../Icon/Icon';
 
-const color = scheme.prop
+const color = scheme.prop;
+
+const activeAction = {
+  type: String,
+  default: ''
+}
 
 export default {
-  name: "MapController",
-  components: {Icon, FloatBtn},
-  mixins: [Color],
+  name: 'MapController',
+  components: { Icon, FloatBtn },
+  mixins: [ColorScheme],
   data: () => ({
-    actions: ['search', 'location', 'filter']
+    actions: ['search', 'location', 'filter'],
   }),
   props: {
     color,
-    activeAction: {
-      type: String,
-      default: ''
-    }
+    activeAction
   },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

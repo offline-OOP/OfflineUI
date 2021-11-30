@@ -6,7 +6,7 @@
     </div>
 
     <div :class="contentClass">
-      <slot name="content"/>
+      <slot/>
     </div>
 
     <div :class="footerClass">
@@ -17,44 +17,41 @@
 </template>
 
 <script>
-import {PageScheme as scheme} from "./Page.color.js";
-import Color from "../../mixins/Color";
+import scheme from './Page.color.ts';
+import ColorScheme from '../../mixins/ColorScheme';
 
 const pageClass = {
   type: String,
   required: false,
-  default: 'bg-primary'
-}
+  default: 'bg-primary',
+};
 
 const contentClass = {
   type: String,
   required: false,
-  default: 'p-4'
-}
+  default: 'p-4',
+};
 
 const headerClass = {
   type: String,
   required: false,
-  default: ''
-}
+  default: '',
+};
 
 const footerClass = {
   type: String,
   required: false,
-  default: ''
-}
+  default: '',
+};
 
 export default {
-  name: "Page",
-  components: {
-
-  },
-  mixins: [Color],
+  name: 'Page',
+  mixins: [ColorScheme],
   props: {
-    pageClass, contentClass, headerClass, footerClass
+    pageClass, contentClass, headerClass, footerClass,
   },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

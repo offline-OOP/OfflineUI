@@ -1,24 +1,24 @@
-import {default as Navigation} from "../../components/Navigation/Navigation";
-import {NavigationScheme as scheme} from "../../components/Navigation/Navigation.color.js";
-import {WHITE} from "../../utils/ColorSchemeManager";
-import NavigationItem from "../../components/Navigation/NavigationItem";
-import Switcher from "../../components/Switcher/Switcher";
+import Navigation from '../../components/Navigation/Navigation';
+import scheme from '../../components/Navigation/Navigation.color';
+import { WHITE } from '../../utils/ColorSchemeManager';
+import NavigationItem from '../../components/Navigation/NavigationItem';
+import Switcher from '../../components/Switcher/Switcher';
 
 export default {
-    title: 'Компоненты/Navigation/Navigation',
-    component: Navigation,
-    argTypes: {
-        color: {
-            control: {type: 'select'},
-            options: scheme.colors
-        },
-    }
-}
+  title: 'Компоненты/Navigation/Navigation',
+  component: Navigation,
+  argTypes: {
+    color: {
+      control: { type: 'select' },
+      options: scheme.colors,
+    },
+  },
+};
 
 export const Default = (args) => ({
-    components: {Navigation, NavigationItem},
-    setup: () => ({...args}),
-    template: `
+  components: { Navigation, NavigationItem },
+  setup: () => ({ ...args }),
+  template: `
       <Navigation :color="color" >
         <NavigationItem icon="map-time" :color="color">
           line-up
@@ -36,16 +36,16 @@ export const Default = (args) => ({
           story
         </NavigationItem>
       </Navigation>
-    `
-})
+    `,
+});
 Default.args = {
-    color: WHITE
-}
+  color: WHITE,
+};
 
 export const End = (args) => ({
-    components: {Navigation, NavigationItem, Switcher},
-    setup: () => ({...args}),
-    template: `
+  components: { Navigation, NavigationItem, Switcher },
+  setup: () => ({ ...args }),
+  template: `
       <Navigation :color="color" >
         <NavigationItem icon="map-time" :color="color">
           line-up
@@ -60,8 +60,8 @@ export const End = (args) => ({
           <Switcher color="accent" mode="map"/>
         </template>
       </Navigation>
-    `
-})
+    `,
+});
 End.args = {
-    color: WHITE
-}
+  color: WHITE,
+};

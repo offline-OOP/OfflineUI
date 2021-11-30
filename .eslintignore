@@ -1,0 +1,9 @@
+/.quasar
+/.idea
+/node_modules
+.eslintrc.js
+babel.config.js
+/src/quasar-extension
+tailwind.config.js
+postcss.config.js
+

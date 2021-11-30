@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import {NavigationScheme as scheme} from "./Navigation.color.js";
-import Color from "../../mixins/Color";
+import scheme from './Navigation.color.ts';
+import ColorScheme from '../../mixins/ColorScheme';
 
 export default {
-  name: "Navigation",
-  mixins: [Color],
+  name: 'Navigation',
+  mixins: [ColorScheme],
   props: { color: scheme.prop },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

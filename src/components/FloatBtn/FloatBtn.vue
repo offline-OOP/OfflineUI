@@ -11,27 +11,27 @@
 
 <script>
 
-import Color from "../../mixins/Color";
-import {FloatBtnScheme as scheme} from "./FloatBtn.color";
+import ColorScheme from '../../mixins/ColorScheme';
+import scheme from './FloatBtn.color';
 
-const color = scheme.prop
+const color = scheme.prop;
 
 export default {
-  name: "FloatBtn",
-  mixins: [Color],
+  name: 'FloatBtn',
+  mixins: [ColorScheme],
   props: {
     color,
     active: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class='pin bounce absolute' :class="[getScheme('marker'), sponsor? 'ring-2 ring-black': '']">
+    <div class='pin bounce absolute' :class="[sponsor? 'ring-2 ring-black': '', getScheme('marker')]">
       <div class="content">
         <img class="img z-10 absolute rounded-full" src="http://vnvncconcerthall.ru/wp-content/uploads/2021/03/054.jpg" alt="test"/>
         <icon class="icon z-20 absolute w-5 h-5 rounded-full text-xs bg-white flex items-center justify-center shadow"
@@ -12,53 +12,43 @@
 </template>
 
 <script>
-import {MapMarkerScheme as scheme} from "./MapMarker.color.js";
-import Color from "../../mixins/Color";
-import Icon from "../Icon/Icon";
+import scheme from './MapMarker.color';
+import ColorScheme from '../../mixins/ColorScheme';
+import Icon from '../Icon/Icon';
 
-const mapApi = {
-  type: Object,
-  required: true
-}
-const map = {
-  type: Object,
-  required: true
-}
-const coordinates = {
+const coords = {
   type: Array,
-  required: true
-}
+  required: true,
+};
 const sponsor = {
   type: Boolean,
   required: false,
-  default: false
-}
-const color = scheme.prop
+  default: false,
+};
+const color = scheme.prop;
 
 export default {
-  name: "MapMarker",
-  components: {Icon},
-  mixins: [Color],
+  name: 'MapMarker',
+  components: { Icon },
+  mixins: [ColorScheme],
   props: {
-    mapApi,
-    map,
     color,
-    coordinates,
+    coords,
     sponsor
   },
   data: () => ({
-    marker: null,
+    htmlMarker: null,
   }),
   created() {
-    this.initScheme(scheme)
+    this.initScheme(scheme);
   },
   mounted() {
-    this.marker = new this.mapApi.HtmlMarker(this.map, {
-      coordinates: this.coordinates,
+    this.htmlMarker = new this.$store.getters['map/api'].HtmlMarker(this.$store.getters['map/map'], {
+      coordinates: this.coords,
       html: this.$el,
     });
-  }
-}
+  },
+};
 </script>
 
 <style scoped lang="css">

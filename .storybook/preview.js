@@ -1,14 +1,15 @@
 import '../src/style.css';
-import { app } from '@storybook/vue3'
-import { createI18n } from 'vue-i18n'
-import messages from '../src/i18n/messages'
+import {app} from '@storybook/vue3';
+import {createStore} from 'vuex';
+import map from '../src/store/map';
 
-const i18n = createI18n({
-  locale: 'ru',
-  messages
+const store = createStore({
+  modules: {
+    map
+  }
 })
 
-app.use(i18n)
+app.use(store)
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

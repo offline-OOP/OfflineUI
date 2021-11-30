@@ -1,7 +1,12 @@
 <template>
-  <div class="w-min h-6 rounded-full flex flex-row items-center" :class="getScheme('wrapper')">
+  <div
+    class="w-min h-6 rounded-full flex flex-row items-center"
+    :class="getScheme('wrapper')"
+  >
     <template v-if="icon">
-      <icon class="w-6 h-6 rounded-full text-xs flex items-center justify-center shadow -mx-1" :name="icon" :class="getScheme('icon')"/>
+      <icon
+        class="w-6 h-6 rounded-full text-xs flex items-center justify-center shadow -mx-1"
+        :value="icon" :class="getScheme('icon')"/>
     </template>
     <div class="font-open-sans font-bold capitalize text-xs mx-2">
       <slot/>
@@ -10,27 +15,27 @@
 </template>
 
 <script>
-import {ChipScheme as scheme} from "./Chip.color.js";
-import Color from "../../mixins/Color";
-import Icon from "../Icon/Icon";
+import scheme from './Chip.color';
+import ColorScheme from '../../mixins/ColorScheme';
+import Icon from '../Icon/Icon';
 
 const icon = {
   type: String,
   required: false,
-  default: null
-}
-const color = scheme.prop
+  default: null,
+};
+const color = scheme.prop;
 
 export default {
-  name: "Chip",
-  components: {Icon},
-  mixins: [Color],
+  name: 'Chip',
+  components: { Icon },
+  mixins: [ColorScheme],
   props: {
     icon,
-    color
+    color,
   },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

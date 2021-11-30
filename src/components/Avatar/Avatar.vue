@@ -1,18 +1,18 @@
 <template>
-
+  <div/>
 </template>
 
 <script>
-import {AvatarScheme as scheme} from "./Avatar.color.js";
-import Color from "../../mixins/Color";
+import scheme from './Avatar.color.ts';
+import ColorScheme from '../../mixins/ColorScheme';
 
 export default {
-  name: "Avatar",
+  name: 'Avatar',
   components: {},
-  mixins: [Color],
+  mixins: [ColorScheme],
   props: {},
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>

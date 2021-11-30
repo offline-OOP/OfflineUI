@@ -1,36 +1,47 @@
 <template>
-  <div class="flex place-between place-items-center" :class="[vertical? 'flex-col': 'flex-row']">
-    <template v-for="n in count">
+  <div
+    class="flex place-between place-items-center"
+    :class="[vertical? 'flex-col': 'flex-row']"
+  >
+    <template v-for="(n, index) in count" :key="`step-${index}`">
       <Step
-          :color="color"
-          :checked="n < step"
+        :color="color"
+        :checked="n < step"
       />
-      <div class="border m-2 last:h-0 last:hidden" :class="[getScheme(), vertical? 'w-0 h-full': 'h-0 w-full']"/>
+      <div
+        class="border m-2 last:h-0 last:hidden"
+        :class="[getScheme(), vertical? 'w-0 h-full': 'h-0 w-full']"
+      />
     </template>
   </div>
 </template>
 
 <script>
-import {StepperScheme as scheme} from "./Stepper.color";
-import Color from "../../mixins/Color";
-import Step from "./Step";
+import scheme from './Stepper.color';
+import ColorScheme from '../../mixins/ColorScheme';
+import Step from './Step';
+
+const count = {
+  type: Number,
+};
+const step = {
+  type: Number,
+};
+const color = scheme.prop;
+const vertical = {
+  type: Boolean,
+  default: false,
+};
 
 export default {
-  name: "Stepper",
-  components: {Step},
-  mixins: [Color],
+  name: 'Stepper',
+  components: { Step },
+  mixins: [ColorScheme],
   props: {
-    count: Number,
-    step: Number,
-    color: scheme.prop,
-    vertical: {
-      type: Boolean,
-      default: false
-    }
+    count, step, color, vertical,
   },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>
-

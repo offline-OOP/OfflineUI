@@ -1,6 +1,12 @@
 <template>
-  <div class="w-min h-2 flex flex-row items-center" :class="getScheme()">
-    <div class="w-2 h-2 rounded-full" :class="getScheme('point')"/>
+  <div
+    class="w-min h-2 flex flex-row items-center"
+    :class="getScheme()"
+  >
+    <div
+      class="w-2 h-2 rounded-full"
+      :class="getScheme('point')"
+    />
     <div class="font-lena whitespace-nowrap lowercase text-xs ml-2 text-wrap">
       <slot/>
     </div>
@@ -8,19 +14,17 @@
 </template>
 
 <script>
-import {StatusScheme as scheme} from "./Status.color";
-import Color from "../../mixins/Color";
+import scheme from './Status.color';
+import ColorScheme from '../../mixins/ColorScheme';
 
-const color = scheme.prop
+const color = scheme.prop;
 
 export default {
-  name: "Chip",
-  mixins: [Color],
-  props: {
-    color
-  },
+  name: 'Chip',
+  mixins: [ColorScheme],
+  props: { color },
   created() {
-    this.initScheme(scheme)
-  }
-}
+    this.initScheme(scheme);
+  },
+};
 </script>
