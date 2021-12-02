@@ -10,11 +10,16 @@ module.exports = {
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'background-default': `url('${require.resolve('./src/assets/images/background-default.png')}')`,
+
+      }
+    },
     fontFamily: {
       montserrat: ['Montserrat'],
       openSans: ['Open Sans'],
-      lena: ['Montserrat'],
+      lena: ['Lena'],
     },
     colors: {
       accent: 'var(--color-accent)',

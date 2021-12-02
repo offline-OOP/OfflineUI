@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen overflow-y-scroll" :class="pageClass">
+  <div class="w-screen h-screen overflow-y-scroll scrollbar-hide" :class="pageClass">
 
     <div :class="headerClass">
       <slot name="header"/>
