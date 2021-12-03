@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex place-between place-items-center"
+    class="flex place-between place-items-center no-wrap"
     :class="[vertical? 'flex-col': 'flex-row']"
   >
     <template v-for="(n, index) in count" :key="`step-${index}`">

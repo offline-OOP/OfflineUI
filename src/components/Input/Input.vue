@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-row place-items-center rounded-full p-3"
+    class="flex flex-row no-wrap place-items-center rounded-full p-3"
     :class="getScheme('div')"
   >
     <label v-if="icon" :for="id">
@@ -16,9 +16,11 @@
       :autofocus="autofocus"
       :autocomplete="autocomplete"
       :type="type"
+      v-model="model"
       :placeholder="placeholder"
       class="w-full h-6 font-montserrat font-light text-sm border-none focus:ring-0"
       :class="getScheme('input')"
+      @input="$emit('update:modelValue', model)"
     >
   </div>
 </template>
@@ -43,9 +45,11 @@ const autofocus = {
 
 const id = {
   type: String,
+  required: true
 };
 const type = {
   type: String,
+  default: 'text',
   validator: (value) => {
     oneOfArray(types);
   },
@@ -64,8 +68,15 @@ export default {
   components: { Icon },
   mixins: [ColorScheme],
   props: {
+    modelValue: {
+      type: [String, Boolean],
+      required: true
+    },
     id, type, color, icon, placeholder, autofocus, autocomplete,
   },
+  data: () => ({
+    model: ''
+  }),
   created() {
     this.initScheme(scheme);
   },
