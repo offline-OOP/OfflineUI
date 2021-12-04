@@ -28,7 +28,7 @@
 <script>
 import scheme from './Input.color';
 import ColorScheme from '../../mixins/ColorScheme';
-import { oneOfArray } from '../../utils/props.validators';
+import oneOfArray from '../../utils/validators/oneOfArray';
 import Icon from '../Icon/Icon';
 
 export const types = ['text', 'email', 'tel', 'date', 'datetime-local', 'file', 'url', 'password'];
@@ -37,12 +37,10 @@ const autocomplete = {
   type: Boolean,
   default: true,
 };
-
 const autofocus = {
   type: Boolean,
   default: false,
 };
-
 const id = {
   type: String,
   required: true
@@ -55,12 +53,15 @@ const type = {
   },
 };
 const color = scheme.prop;
-
 const icon = {
   type: String,
 };
 const placeholder = {
   type: String,
+};
+const modelValue = {
+  type: String,
+  required: true
 };
 
 export default {
@@ -68,11 +69,7 @@ export default {
   components: { Icon },
   mixins: [ColorScheme],
   props: {
-    modelValue: {
-      type: [String, Boolean],
-      required: true
-    },
-    id, type, color, icon, placeholder, autofocus, autocomplete,
+    modelValue, id, type, color, icon, placeholder, autofocus, autocomplete,
   },
   data: () => ({
     model: ''

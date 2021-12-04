@@ -1,4 +1,4 @@
-import MapController from '../../components/Map/MapController';
+import MapController, {actions} from '../../components/Map/MapController';
 import scheme from '../../components/Map/MapController.color';
 import { WHITE } from '../../utils/ColorSchemeManager';
 
@@ -10,6 +10,10 @@ export default {
       control: { type: 'select' },
       options: scheme.colors,
     },
+    modelValue: {
+      control: { type: 'select' },
+      options: ['', ...actions]
+    }
   },
 };
 
@@ -17,10 +21,10 @@ export const Default = (args) => ({
   components: { MapController },
   setup: () => ({ ...args }),
   template: `
-      <MapController :active-action='activeAction' :color="color" />
+      <MapController v-model='modelValue' :color="color" />
     `,
 });
 Default.args = {
   color: WHITE,
-  activeAction: 'filter',
+  modelValue: 'filter',
 };

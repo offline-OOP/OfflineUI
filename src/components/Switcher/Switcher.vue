@@ -1,14 +1,17 @@
 <template>
-  <div class="flex flex-col cursor-pointer">
+  <div
+    class="flex flex-col cursor-pointer"
+    @click="$emit('update:modelValue', modelValue === 'map'? 'list': 'map')"
+  >
     <Icon
-      name="map"
+      value="map"
       class="text-base"
-      :class="getScheme(mode === 'map'? 'active': 'not-active')"
+      :class="getScheme(modelValue === 'map'? 'active': 'not-active')"
     />
     <Icon
-      name="list"
+      value="list"
       class="text-base mt-3"
-      :class="getScheme(mode === 'list'? 'active': 'not-active')"
+      :class="getScheme(modelValue === 'list'? 'active': 'not-active')"
     />
   </div>
 </template>
@@ -17,13 +20,14 @@
 import scheme from './Switcher.color';
 import ColorScheme from '../../mixins/ColorScheme';
 import Icon from '../Icon/Icon';
-import { oneOfArray } from '../../utils/props.validators';
+import oneOfArray from '../../utils/validators/oneOfArray';
 
 export const modes = ['map', 'list'];
 
-const mode = {
+const modelValue = {
   type: String,
-  validator: oneOfArray(modes),
+  required: true,
+  validator: oneOfArray(modes)
 };
 const color = scheme.prop;
 
@@ -31,8 +35,7 @@ export default {
   name: 'Switcher',
   components: { Icon },
   mixins: [ColorScheme],
-  props: { mode, color },
-  emits: ['change-mode'],
+  props: { modelValue, color },
   created() {
     this.initScheme(scheme);
   },

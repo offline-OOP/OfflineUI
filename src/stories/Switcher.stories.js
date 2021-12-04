@@ -10,7 +10,7 @@ export default {
       control: { type: 'select' },
       options: scheme.colors,
     },
-    mode: {
+    modelValue: {
       control: { type: 'select' },
       options: modes,
     },
@@ -19,12 +19,14 @@ export default {
 
 export const Default = (args) => ({
   components: { Switcher },
-  setup: () => ({ ...args }),
+  setup: () => ({
+    ...args
+  }),
   template: `
-      <Switcher :color="color" :mode="mode" />
+      <Switcher :color="color" v-model="modelValue" />
     `,
 });
 Default.args = {
   color: ACCENT,
-  mode: modes[0],
+  modelValue: modes[0],
 };

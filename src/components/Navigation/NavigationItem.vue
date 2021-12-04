@@ -1,7 +1,7 @@
 <template>
   <li class="list-none cursor-pointer">
     <router-link class="flex flex-col place-items-center" :to="to">
-      <icon class="text-3xl" :class="getScheme('icon')" :name="icon"/>
+      <icon class="text-3xl" :class="getScheme('icon')" :value="icon"/>
       <p class="text-xs text-lena" :class="getScheme('text')"> <slot/> </p>
     </router-link>
   </li>

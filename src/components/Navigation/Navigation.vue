@@ -1,6 +1,9 @@
 <template>
   <nav
-    class="px-4 py-3 w-full h-16 rounded-2xl flex flex-row items-center place-content-between shadow-md"
+    class="px-4 py-3 w-full h-16
+           rounded-2xl flex flex-row
+           items-center place-content-between
+           shadow-md no-wrap"
     :class="getScheme()"
   >
     <slot name="start"/>

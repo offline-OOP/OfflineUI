@@ -5,15 +5,14 @@ const tailwindScrollbarHidePlugin = require('tailwind-scrollbar-hide');
 
 module.exports = {
   purge: [
-      './src/**/*.vue',
-      './src/components/**/*.color.js'
+      /*'./src/!**!/!*.vue',
+      './src/components/!**!/!*.color.js'*/
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       backgroundImage: {
-        'background-default': `url('${require.resolve('./src/assets/images/background-default.png')}')`,
-
+        //'background-default': `url('${require.resolve('./src/assets/images/background-default.png')}')`,
       }
     },
     fontFamily: {

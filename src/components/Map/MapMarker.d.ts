@@ -1,6 +1,10 @@
+import IImg from "src/utils/IImg";
+
 interface MapMarkerProps {
     color?: string;
-    coords?: [Number, Number];
+    coords: [Number, Number];
+    icon: string;
+    img: IImg;
     sponsor?: Boolean;
 }
 

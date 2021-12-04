@@ -6,7 +6,9 @@
     <template v-if="icon">
       <icon
         class="w-6 h-6 rounded-full text-xs flex items-center justify-center shadow -mx-1"
-        :value="icon" :class="getScheme('icon')"/>
+        :value="icon"
+        :class="getScheme('icon')"
+      />
     </template>
     <div class="font-open-sans font-bold capitalize text-xs mx-2">
       <slot/>

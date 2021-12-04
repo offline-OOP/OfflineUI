@@ -1,10 +1,11 @@
 interface MapControllerProps {
     color?: string;
-    activeAction?: string;
+    modelValue: string;
 }
 
 declare class MapController {
     $props: MapControllerProps;
+    $emit(eventName: 'update:modelValue', value: string): this;
 }
 
 

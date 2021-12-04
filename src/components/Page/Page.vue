@@ -29,7 +29,7 @@ const pageClass = {
 const contentClass = {
   type: String,
   required: false,
-  default: 'p-4',
+  default: '',
 };
 
 const headerClass = {

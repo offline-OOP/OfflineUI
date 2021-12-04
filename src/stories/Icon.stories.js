@@ -9,31 +9,31 @@ export const Default = (args) => ({
   components: { Icon },
   setup: () => ({ ...args }),
   template: `
-      <Icon :name="name"/>
+      <Icon :value="value"/>
     `,
 });
 Default.args = {
-  name: 'at',
+  value: 'at',
 };
 
 export const Color = (args) => ({
   components: { Icon },
   setup: () => ({ ...args }),
   template: `
-      <Icon class="text-info text-5xl" :name="name"/>
+      <Icon class="text-info text-5xl" :value="value"/>
     `,
 });
 Color.args = {
-  name: 'at',
+  value: 'at',
 };
 
 export const Number = (args) => ({
   components: { Icon },
   setup: () => ({ ...args }),
   template: `
-      <Icon :name="name"/>
+      <Icon :value="value"/>
     `,
 });
 Number.args = {
-  name: 23,
+  value: 23,
 };

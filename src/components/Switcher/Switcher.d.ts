@@ -1,12 +1,11 @@
 interface SwitcherProps {
     color?: string;
-    mode?: string;
+    modelValue: string;
 }
 
 declare class Switcher {
     $props: SwitcherProps;
-
-    $emit(eventName: 'change-mode'): this;
+    $emit(eventName: 'update:modelValue', value: string): this;
 }
 
 

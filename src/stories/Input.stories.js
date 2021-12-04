@@ -13,6 +13,9 @@ export default {
     id: {
       control: { type: 'text' },
     },
+    modelValue: {
+      control: { type: 'text' }
+    },
     type: {
       control: { type: 'select' },
       options: types,
@@ -30,7 +33,7 @@ export const Default = (args) => ({
   components: { Input },
   setup: () => ({ ...args }),
   template: `
-      <Input :id="id" :placeholder="placeholder" :color="color" :type="type"/>
+      <Input v-model="modelValue" :id="id" :placeholder="placeholder" :color="color" :type="type"/>
     `,
 });
 Default.args = {
@@ -38,13 +41,14 @@ Default.args = {
   type: 'text',
   color: WHITE,
   placeholder: 'some placeholder',
+  modelValue: ''
 };
 
 export const WithIcon = (args) => ({
   components: { Input },
   setup: () => ({ ...args }),
   template: `
-      <Input :id="id" :placeholder="placeholder" :color="color" :type="type" :icon="icon"/>
+      <Input v-model="modelValue" :id="id" :placeholder="placeholder" :color="color" :type="type" :icon="icon"/>
     `,
 });
 WithIcon.args = {
@@ -53,4 +57,5 @@ WithIcon.args = {
   type: 'text',
   icon: 'at',
   placeholder: 'some placeholder',
+  modelValue: ''
 };

@@ -1,12 +1,23 @@
 <template>
   <div class="relative">
-    <div class='pin bounce absolute' :class="[sponsor? 'ring-2 ring-black': '', getScheme('marker')]">
+    <div
+      class='pin bounce absolute'
+      :class="[sponsor? 'ring-2 ring-black': '', getScheme('marker')]"
+    >
       <div class="content">
-        <img class="img z-10 absolute rounded-full" src="http://vnvncconcerthall.ru/wp-content/uploads/2021/03/054.jpg" alt="test"/>
-        <icon class="icon z-20 absolute w-5 h-5 rounded-full text-xs bg-white flex items-center justify-center shadow"
-              name="at" :class="getScheme('icon')"/>
+        <img
+          class="img z-10 absolute rounded-full"
+          :src="img.src"
+          :alt="img.alt"
+        />
+        <icon
+          class="icon z-20 absolute w-5 h-5 rounded-full text-xs bg-white flex items-center justify-center shadow"
+          :value="icon"
+          :class="getScheme('icon')"
+        />
       </div>
     </div>
+
     <div class='pulse bg-gray'/>
   </div>
 </template>
@@ -16,16 +27,24 @@ import scheme from './MapMarker.color';
 import ColorScheme from '../../mixins/ColorScheme';
 import Icon from '../Icon/Icon';
 
+const color = scheme.prop;
 const coords = {
   type: Array,
   required: true,
+};
+const icon = {
+  type: String,
+  required: true
+}
+const img = {
+  type: Object,
+  required: true
 };
 const sponsor = {
   type: Boolean,
   required: false,
   default: false,
 };
-const color = scheme.prop;
 
 export default {
   name: 'MapMarker',
@@ -34,6 +53,8 @@ export default {
   props: {
     color,
     coords,
+    icon,
+    img,
     sponsor
   },
   data: () => ({

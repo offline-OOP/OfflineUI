@@ -7,6 +7,4 @@ export function oneOfArray(vars: Array<string>) {
   return (value: string) => vars.indexOf(value) !== -1;
 }
 
-export default {
-  oneOfArray,
-};
+export default oneOfArray;
