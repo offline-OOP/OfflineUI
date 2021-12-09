@@ -1,11 +1,12 @@
-import NotifyCard from "../../components/NotifyCard/NotifyCard";
+import EventActivityTemplate from "../../templates/EventActivityTemplate/EventActivityTemplate";
 import Avatar from "../../components/Avatar/Avatar";
-import scheme from "../../components/NotifyCard/NotifyCard.color";
+import Card from "../../components/Card/Card";
+import scheme from "../../components/Card/Card.color";
 import {WHITE} from "../../colors/colors";
 
 export default {
-    title: 'Карточки/NotifyCard',
-    component: NotifyCard,
+    title: 'Шаблоны/EventActivityTemplate',
+    component: EventActivityTemplate,
     argTypes: {
         color: {
             control: {type: 'select'},
@@ -15,18 +16,15 @@ export default {
 }
 
 export const Placeholder = (args) => ({
-    components: {NotifyCard},
+    components: {EventActivityTemplate},
     setup: () => ({...args}),
     template: `
-      <NotifyCard :color="color" />
+      <EventActivityTemplate />
     `
 })
-Placeholder.args = {
-    color: WHITE
-}
 
-export const Default = (args) => ({
-    components: {NotifyCard, Avatar},
+export const InCard = (args) => ({
+    components: {EventActivityTemplate, Card, Avatar},
     data: () => ({
         img: {
             src: 'https://www.photogorky.ru/photos/f1ac8ec12016c5a9777f8c8f77aec48b.jpg',
@@ -40,28 +38,30 @@ export const Default = (args) => ({
         time: '15:26'
     }),
     setup: () => ({...args}),
-    created () {
+    created() {
         setTimeout(() => {
             this.isLoad = true
         }, 5000)
     },
     template: `
-      <NotifyCard :color="color">
-        <template #avatar>
-          <Avatar v-if="isLoad" :to="to" :size="size" :img="img"/>
-        </template>
-        <template v-if="isLoad">
-          {{text}}
-        </template>
-        <template #time>
-          <template v-if="isLoad">
-            {{time}}
+      <Card :color="color">
+        <EventActivityTemplate :color="color">
+          <template #avatar>
+            <Avatar v-if="isLoad" :to="to" :size="size" :img="img"/>
           </template>
-        </template>
-      </NotifyCard>
+          <template v-if="isLoad">
+              {{text}}
+            </template>
+            <template #time>
+              <template v-if="isLoad">
+                {{time}}
+              </template>
+            </template>
+          </EventActivityTemplate>
+      </Card>
     `
 })
-Default.args = {
+InCard.args = {
     color: WHITE,
     isLoad: false
 }

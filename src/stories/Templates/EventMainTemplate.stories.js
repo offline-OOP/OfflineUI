@@ -1,13 +1,14 @@
-import EventMainCard from "../../components/EventMainCard/EventMainCard";
+import EventMainTemplate from "../../templates/EventMainTemplate/EventMainTemplate";
+import Card from "../../components/Card/Card";
+import scheme from "../../components/Card/Card.color";
 import Avatar from "../../components/Avatar/Avatar";
-import scheme from "../../components/EventMainCard/EventMainCard.color";
 import NavigationItem from "../../components/Navigation/NavigationItem";
 import Navigation from "../../components/Navigation/Navigation";
 import {WHITE} from "../../colors/colors";
 
 export default {
-    title: 'Карточки/EventMainCard',
-    component: EventMainCard,
+    title: 'Шаблоны/EventMainTemplate',
+    component: EventMainTemplate,
     argTypes: {
         color: {
             control: {type: 'select'},
@@ -17,18 +18,18 @@ export default {
 }
 
 export const Placeholder = (args) => ({
-    components: {EventMainCard},
+    components: {EventMainTemplate, Card},
     setup: () => ({...args}),
     template: `
-      <EventMainCard :color="color" />
+      <EventMainTemplate />
     `
 })
 Placeholder.args = {
     color: WHITE
 }
 
-export const Default = (args) => ({
-    components: {EventMainCard, Avatar, Navigation, NavigationItem},
+export const InCard = (args) => ({
+    components: {EventMainTemplate, Card, Avatar, Navigation, NavigationItem},
     data: () => ({
         name: 'Concert',
         appName: '@concert',
@@ -49,24 +50,26 @@ export const Default = (args) => ({
         }, 5000)
     },
     template: `
-      <EventMainCard :color="color">
-        <template #avatar>
-          <Avatar v-if="isLoad" :to="to" :size="size" :img="img"/>
-        </template>
-        <template #name>
+      <Card :color="color">
+        <EventMainTemplate :color="color">
+          <template #avatar>
+              <Avatar v-if="isLoad" :to="to" :size="size" :img="img"/>
+            </template>
+          <template #name>
+              <template v-if="isLoad">
+                {{name}}
+              </template>
+            </template>
+          <template #appName>
+              <template v-if="isLoad">
+                {{appName}}
+              </template>
+            </template>
           <template v-if="isLoad">
-            {{name}}
+            {{text}}
           </template>
-        </template>
-        <template #appName>
-          <template v-if="isLoad">
-            {{appName}}
-          </template>
-        </template>
-        <template v-if="isLoad">
-          {{text}}
-        </template>
-        <template #navigation>
+        </EventMainTemplate>
+        <template #footer>
           <Navigation v-if="isLoad" :color="color" >
             <NavigationItem icon="map-time" :color="color">
               line-up
@@ -85,10 +88,11 @@ export const Default = (args) => ({
             </NavigationItem>
           </Navigation>
         </template>
-      </EventMainCard>
+      </Card>
+      
     `
 })
-Default.args = {
+InCard.args = {
     color: WHITE,
     isLoad: false
 }

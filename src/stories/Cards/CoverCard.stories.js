@@ -1,9 +1,9 @@
-import CoverCard from "../components/CoverCard/CoverCard";
-import scheme from "../components/CoverCard/CoverCard.color";
-import {ACCENT} from "../colors/colors";
+import CoverCard from "../../components/CoverCard/CoverCard";
+import scheme from "../../components/CoverCard/CoverCard.color";
+import {ACCENT} from "../../colors/colors";
 
 export default {
-    title: 'Компоненты/CoverCard',
+    title: 'Карточки/CoverCard',
     component: CoverCard,
     argTypes: {
         color: {

@@ -1,12 +1,7 @@
 import {VNode} from 'vue'
 import Avatar from 'components/Avatar/Avatar';
 
-interface NotifyCardProps {
-    color?: string;
-}
-
-declare class NotifyCard {
-    $props: NotifyCardProps;
+declare class NotifyTemplate {
     $slot: {
         'avatar': Avatar;
         '': VNode[];
@@ -15,6 +10,4 @@ declare class NotifyCard {
     };
 }
 
-
-
-export default NotifyCard
+export default NotifyTemplate

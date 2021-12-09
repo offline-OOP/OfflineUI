@@ -1,9 +1,9 @@
-import Card from "../components/Card/Card";
-import scheme from "../components/Card/Card.color";
-import {WHITE} from "../colors/colors";
+import Card from "../../components/Card/Card";
+import scheme from "../../components/Card/Card.color";
+import {WHITE} from "../../colors/colors";
 
 export default {
-    title: 'Компоненты/Card',
+    title: 'Карточки/Card',
     component: Card,
     argTypes: {
         color: {

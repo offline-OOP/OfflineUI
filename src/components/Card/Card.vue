@@ -1,7 +1,7 @@
 <template>
   <div class="rounded-lg shadow-md overflow-hidden flex flex-col p-0">
     <slot name="header"/>
-    <div class="overflow-y-scroll p-4 scrollbar-hide">
+    <div class="overflow-y-scroll px-4 py-2 scrollbar-hide">
       <slot/>
     </div>
     <slot name="footer"/>
