@@ -1,6 +1,6 @@
 import Btn from '../components/Btn/Btn';
 import scheme from '../components/Btn/Btn.color';
-import { ACCENT } from '../utils/ColorSchemeManager';
+import { ACCENT } from '../colors/colors';
 
 export default {
   title: 'Компоненты/Btn',

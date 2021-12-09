@@ -1,7 +1,6 @@
-import {
-  ColorSchemeManager,
-  ACCENT, SUCCESS, INFO, GRAY,
-} from '../../utils/ColorSchemeManager';
+import ColorSchemeManager from '../../colors/ColorSchemeManager';
+import {ACCENT, SUCCESS, GRAY, INFO }  from '../../colors/colors';
+
 
 export const MapMarkerScheme: ColorSchemeManager = new ColorSchemeManager(INFO);
 MapMarkerScheme.write(ACCENT, 'bg-accent', 'marker');

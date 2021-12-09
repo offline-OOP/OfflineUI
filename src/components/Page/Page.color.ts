@@ -1,7 +1,5 @@
-import {
-  ColorSchemeManager,
-  ACCENT,
-} from '../../utils/ColorSchemeManager';
+import ColorSchemeManager from '../../colors/ColorSchemeManager';
+import {ACCENT}  from '../../colors/colors';
 
 export const PageScheme: ColorSchemeManager = new ColorSchemeManager(ACCENT);
 PageScheme.write(ACCENT, 'text-accent');

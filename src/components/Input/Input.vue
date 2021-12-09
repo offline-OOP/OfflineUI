@@ -27,7 +27,7 @@
 
 <script>
 import scheme from './Input.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import oneOfArray from '../../utils/validators/oneOfArray';
 import Icon from '../Icon/Icon';
 
@@ -52,7 +52,6 @@ const type = {
     oneOfArray(types);
   },
 };
-const color = scheme.prop;
 const icon = {
   type: String,
 };
@@ -69,13 +68,11 @@ export default {
   components: { Icon },
   mixins: [ColorScheme],
   props: {
-    modelValue, id, type, color, icon, placeholder, autofocus, autocomplete,
+    modelValue, id, type, icon, placeholder, autofocus, autocomplete,
   },
   data: () => ({
-    model: ''
-  }),
-  created() {
-    this.initScheme(scheme);
-  },
+    model: '',
+    scheme
+  })
 };
 </script>

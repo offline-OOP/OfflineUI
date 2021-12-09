@@ -1,4 +1,4 @@
-import IImg from "src/utils/IImg";
+import IImg from 'src/utils/IImg';
 
 interface MapMarkerProps {
     color?: string;

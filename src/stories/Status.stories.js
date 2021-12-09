@@ -1,6 +1,6 @@
 import Status from '../components/Status/Status';
 import scheme from '../components/Status/Status.color';
-import { SUCCESS } from '../utils/ColorSchemeManager';
+import { SUCCESS } from '../colors/colors';
 
 export default {
   title: 'Компоненты/Status',

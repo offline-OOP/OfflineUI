@@ -1,6 +1,6 @@
 import Stepper from '../../components/Stepper/Stepper';
 import scheme from '../../components/Stepper/Stepper.color';
-import { INFO } from '../../utils/ColorSchemeManager';
+import { INFO } from '../../colors/colors';
 
 export default {
   title: 'Компоненты/Stepper/Stepper',

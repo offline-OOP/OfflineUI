@@ -3,7 +3,7 @@ import MapMarker from '../../components/Map/MapMarker';
 import MapController from "../../components/Map/MapController";
 import {
   ACCENT, GRAY, INFO, SUCCESS,
-} from '../../utils/ColorSchemeManager';
+} from '../../colors/colors';
 
 export default {
   title: 'Компоненты/Map/Map',

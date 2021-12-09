@@ -1,6 +1,6 @@
 import Navigation from '../../components/Navigation/Navigation';
 import scheme from '../../components/Navigation/Navigation.color';
-import { WHITE } from '../../utils/ColorSchemeManager';
+import { WHITE } from '../../colors/colors';
 import NavigationItem from '../../components/Navigation/NavigationItem';
 import Switcher from '../../components/Switcher/Switcher';
 

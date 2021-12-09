@@ -1,6 +1,6 @@
 import NavigationItem from '../../components/Navigation/NavigationItem';
 import scheme from '../../components/Navigation/NavigationItem.color';
-import { WHITE } from '../../utils/ColorSchemeManager';
+import { WHITE } from '../../colors/colors';
 
 export default {
   title: 'Компоненты/Navigation/NavigationItem',

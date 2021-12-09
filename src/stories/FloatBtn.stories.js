@@ -1,6 +1,6 @@
 import FloatBtn from '../components/FloatBtn/FloatBtn';
 import scheme from '../components/FloatBtn/FloatBtn.color';
-import { WHITE } from '../utils/ColorSchemeManager';
+import { WHITE } from '../colors/colors';
 
 export default {
   title: 'Компоненты/FloatBtn',

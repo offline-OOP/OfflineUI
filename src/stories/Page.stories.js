@@ -1,6 +1,6 @@
 import Page from '../components/Page/Page';
 import scheme from '../components/Page/Page.color';
-import { ACCENT } from '../utils/ColorSchemeManager';
+import { ACCENT } from '../colors/colors';
 
 export default {
   title: 'Компоненты/Page',

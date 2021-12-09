@@ -21,13 +21,12 @@
 
 <script>
 import scheme from './Alert.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import Icon from '../Icon/Icon.vue';
 
 const icon = {
   type: String,
 };
-const color = scheme.prop;
 
 export default {
   name: 'Alert',
@@ -35,10 +34,9 @@ export default {
   mixins: [ColorScheme],
   props: {
     icon,
-    color,
   },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

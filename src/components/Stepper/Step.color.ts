@@ -1,4 +1,6 @@
-import { ACCENT, ColorSchemeManager, INFO } from '../../utils/ColorSchemeManager';
+import ColorSchemeManager from '../../colors/ColorSchemeManager';
+import {ACCENT, INFO }  from '../../colors/colors';
+
 
 export const StepScheme: ColorSchemeManager = new ColorSchemeManager(INFO);
 StepScheme.write(INFO, 'border-info text-info bg-transparent checked:border-info checked:text-info checked:bg-info');

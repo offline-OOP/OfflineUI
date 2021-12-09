@@ -1,6 +1,6 @@
 import ChipGroup from '../../components/Chip/ChipGroup';
 import scheme from '../../components/Chip/ChipGroup.color';
-import { GRAY, ACCENT } from '../../utils/ColorSchemeManager';
+import { GRAY, ACCENT } from '../../colors/colors';
 import Chip from '../../components/Chip/Chip';
 
 export default {

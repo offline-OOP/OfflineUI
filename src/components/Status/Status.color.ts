@@ -1,7 +1,5 @@
-import {
-  ColorSchemeManager,
-  SUCCESS, WARNING, DANGER,
-} from '../../utils/ColorSchemeManager';
+import ColorSchemeManager from '../../colors/ColorSchemeManager';
+import {WARNING, SUCCESS, DANGER}  from '../../colors/colors';
 
 export const StatusScheme : ColorSchemeManager = new ColorSchemeManager(SUCCESS);
 StatusScheme.write(SUCCESS, 'text-success');

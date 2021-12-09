@@ -11,19 +11,18 @@
 
 <script>
 import scheme from './Btn.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 
 const outlined = {
   type: Boolean,
   default: false,
 };
-const color = scheme.prop;
 
 export default {
-  props: { outlined, color },
+  props: { outlined },
   mixins: [ColorScheme],
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

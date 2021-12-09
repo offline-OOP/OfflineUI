@@ -9,7 +9,7 @@
 
 <script>
 import scheme from './NavigationItem.color.ts';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import Icon from '../Icon/Icon';
 
 const icon = {
@@ -18,17 +18,16 @@ const icon = {
 const to = {
   type: String,
 };
-const color = scheme.prop;
 
 export default {
   name: 'NavigationItem',
   components: { Icon },
   mixins: [ColorScheme],
   props: {
-    icon, to, color,
+    icon, to,
   },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

@@ -15,13 +15,12 @@
 
 <script>
 import scheme from './MapController.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import FloatBtn from '../FloatBtn/FloatBtn';
 import Icon from '../Icon/Icon';
 
 export const actions = ['search', 'location', 'filter']
 
-const color = scheme.prop;
 const modelValue = {
   type: String,
   required: true
@@ -32,11 +31,11 @@ export default {
   components: { Icon, FloatBtn },
   mixins: [ColorScheme],
   props: {
-    color,
     modelValue
   },
   data: () => ({
     actions,
+    scheme
   }),
   methods: {
     control (action) {
@@ -47,9 +46,6 @@ export default {
       else
         this.$emit('update:modelValue', action)
     }
-  },
-  created() {
-    this.initScheme(scheme);
-  },
+  }
 };
 </script>

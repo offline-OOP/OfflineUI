@@ -18,7 +18,7 @@
 
 <script>
 import scheme from './Chip.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import Icon from '../Icon/Icon';
 
 const icon = {
@@ -26,18 +26,16 @@ const icon = {
   required: false,
   default: null,
 };
-const color = scheme.prop;
 
 export default {
   name: 'Chip',
   components: { Icon },
   mixins: [ColorScheme],
   props: {
-    icon,
-    color,
+    icon
   },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

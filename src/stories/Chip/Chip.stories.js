@@ -1,6 +1,6 @@
 import Chip from '../../components/Chip/Chip';
 import scheme from '../../components/Chip/Chip.color';
-import { ACCENT, GRAY } from '../../utils/ColorSchemeManager';
+import { ACCENT, GRAY } from '../../colors/colors';
 
 export default {
   title: 'Компоненты/Chip/Chip',

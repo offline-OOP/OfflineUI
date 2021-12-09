@@ -1,6 +1,6 @@
 import Alert from '../components/Alert/Alert';
 import scheme from '../components/Alert/Alert.color';
-import { INFO } from '../utils/ColorSchemeManager';
+import { INFO } from '../colors/colors';
 
 export default {
   title: 'Компоненты/Alert',

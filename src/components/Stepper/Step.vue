@@ -9,16 +9,13 @@
 
 <script>
 import scheme from './Step.color.ts';
-import ColorScheme from '../../mixins/ColorScheme.vue';
-
-const color = scheme.prop;
+import ColorScheme from '../../colors/ColorScheme.vue';
 
 export default {
   name: 'Step',
   mixins: [ColorScheme],
-  props: { color },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

@@ -1,6 +1,6 @@
 import MapController, {actions} from '../../components/Map/MapController';
 import scheme from '../../components/Map/MapController.color';
-import { WHITE } from '../../utils/ColorSchemeManager';
+import { WHITE } from '../../colors/colors';
 
 export default {
   title: 'Компоненты/Map/MapController',

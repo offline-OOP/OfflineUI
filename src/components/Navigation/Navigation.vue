@@ -16,14 +16,13 @@
 
 <script>
 import scheme from './Navigation.color.ts';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 
 export default {
   name: 'Navigation',
   mixins: [ColorScheme],
-  props: { color: scheme.prop },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

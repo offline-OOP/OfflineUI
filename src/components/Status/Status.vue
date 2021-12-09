@@ -15,16 +15,13 @@
 
 <script>
 import scheme from './Status.color';
-import ColorScheme from '../../mixins/ColorScheme';
-
-const color = scheme.prop;
+import ColorScheme from '../../colors/ColorScheme';
 
 export default {
   name: 'Chip',
   mixins: [ColorScheme],
-  props: { color },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

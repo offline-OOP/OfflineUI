@@ -1,15 +1,19 @@
-import Avatar from '../components/Avatar/Avatar';
-import scheme from '../components/Avatar/Avatar.color';
-import { ACCENT } from '../utils/ColorSchemeManager';
+import Avatar, {sizes} from '../components/Avatar/Avatar';
 
 export default {
   title: 'Компоненты/Avatar',
   component: Avatar,
   argTypes: {
-    color: {
+    size: {
       control: { type: 'select' },
-      options: scheme.colors,
+      options: sizes,
     },
+    to: {
+      control: { type: 'text' }
+    },
+    img: {
+      control: { type: 'object' }
+    }
   },
 };
 
@@ -17,9 +21,14 @@ export const Default = (args) => ({
   components: { Avatar },
   setup: () => ({ ...args }),
   template: `
-      <Avatar :color="color" />
+      <Avatar :to="to" :size="size" :img="img" />
     `,
 });
 Default.args = {
-  color: ACCENT,
+  img: {
+    src: 'https://www.photogorky.ru/photos/f1ac8ec12016c5a9777f8c8f77aec48b.jpg',
+    alt: 'Пример'
+  },
+  size: 'sm',
+  to: '/'
 };

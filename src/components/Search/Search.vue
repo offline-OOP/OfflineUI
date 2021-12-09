@@ -14,10 +14,8 @@
 
 <script>
 import scheme from '../Input/Input.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import Input from '../Input/Input';
-
-const color = scheme.prop;
 
 const modelValue = {
   type: String,
@@ -29,14 +27,11 @@ export default {
   components: { Input },
   mixins: [ColorScheme],
   props: {
-    modelValue,
-    color,
+    modelValue
   },
   data: () => ({
-    model: ''
+    model: '',
+    scheme
   }),
-  created() {
-    this.initScheme(scheme);
-  },
 };
 </script>

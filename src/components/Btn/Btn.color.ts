@@ -1,7 +1,5 @@
-import {
-  ColorSchemeManager,
-  ACCENT, WHITE,
-} from '../../utils/ColorSchemeManager';
+import ColorSchemeManager from '../../colors/ColorSchemeManager';
+import { ACCENT, WHITE } from '../../colors/colors';
 
 export const BtnScheme: ColorSchemeManager = new ColorSchemeManager(ACCENT);
 BtnScheme.write(ACCENT, 'border-accent bg-accent text-white', 'default');

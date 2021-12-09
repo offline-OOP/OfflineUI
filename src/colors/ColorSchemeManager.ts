@@ -1,11 +1,3 @@
-export const ACCENT = 'accent';
-export const WHITE = 'white';
-export const INFO = 'info';
-export const WARNING = 'warning';
-export const DANGER = 'danger';
-export const GRAY = 'gray';
-export const SUCCESS = 'success';
-
 const DEFAULT_ELEM = 'default';
 
 interface SchemeItem {
@@ -48,20 +40,6 @@ export class ColorSchemeManager {
 
   get colors() : Array<string> {
     return Object.keys(this.scheme);
-  }
-
-  get validator() : Function {
-    const { colors } = this;
-    return (value: string) => colors.indexOf(value) !== -1;
-  }
-
-  get prop() : { type: object, validator: Function } {
-    const { validator } = this;
-
-    return {
-      type: String,
-      validator,
-    };
   }
 }
 

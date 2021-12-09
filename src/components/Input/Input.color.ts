@@ -1,7 +1,5 @@
-import {
-  ColorSchemeManager,
-  WHITE,
-} from '../../utils/ColorSchemeManager';
+import ColorSchemeManager from '../../colors/ColorSchemeManager';
+import {WHITE}  from '../../colors/colors';
 
 export const InputScheme: ColorSchemeManager = new ColorSchemeManager(WHITE);
 InputScheme.write(WHITE, 'bg-white', 'div');

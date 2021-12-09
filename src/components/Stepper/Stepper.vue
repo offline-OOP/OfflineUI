@@ -18,7 +18,7 @@
 
 <script>
 import scheme from './Stepper.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import Step from './Step';
 
 const count = {
@@ -27,7 +27,6 @@ const count = {
 const step = {
   type: Number,
 };
-const color = scheme.prop;
 const vertical = {
   type: Boolean,
   default: false,
@@ -38,10 +37,10 @@ export default {
   components: { Step },
   mixins: [ColorScheme],
   props: {
-    count, step, color, vertical,
+    count, step, vertical,
   },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

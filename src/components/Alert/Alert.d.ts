@@ -8,7 +8,7 @@ interface AlertProps {
 declare class Alert {
   $props: AlertProps;
 
-  $slots: {
+  $slot: {
     'header': VNode[];
     '': VNode[];
   };

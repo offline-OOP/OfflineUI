@@ -24,10 +24,9 @@
 
 <script>
 import scheme from './MapMarker.color';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import Icon from '../Icon/Icon';
 
-const color = scheme.prop;
 const coords = {
   type: Array,
   required: true,
@@ -51,7 +50,6 @@ export default {
   components: { Icon },
   mixins: [ColorScheme],
   props: {
-    color,
     coords,
     icon,
     img,
@@ -59,10 +57,8 @@ export default {
   },
   data: () => ({
     htmlMarker: null,
+    scheme
   }),
-  created() {
-    this.initScheme(scheme);
-  },
   mounted() {
     this.htmlMarker = new this.$store.getters['map/api'].HtmlMarker(this.$store.getters['map/map'], {
       coordinates: this.coords,

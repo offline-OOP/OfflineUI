@@ -18,7 +18,7 @@
 
 <script>
 import scheme from './Page.color.ts';
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 
 const pageClass = {
   type: String,
@@ -50,8 +50,8 @@ export default {
   props: {
     pageClass, contentClass, headerClass, footerClass,
   },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
 };
 </script>

@@ -17,20 +17,15 @@
 
 <script>
 import scheme from './ChipGroup.color';
-import ColorScheme from '../../mixins/ColorScheme';
-
-const color = scheme.prop;
+import ColorScheme from '../../colors/ColorScheme';
 
 export default {
   name: 'ChipGroup',
   mixins: [ColorScheme],
-  props: {
-    color,
-  },
   emits: ['group-scroll'],
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  }),
   methods: {
     fixGroupScroll(event) {
       this.$emit('group-scroll', event);

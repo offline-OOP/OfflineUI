@@ -1,6 +1,6 @@
 import Switcher, { modes } from '../components/Switcher/Switcher';
 import scheme from '../components/Switcher/Switcher.color';
-import { ACCENT } from '../utils/ColorSchemeManager';
+import { ACCENT } from '../colors/colors';
 
 export default {
   title: 'Компоненты/Switcher',

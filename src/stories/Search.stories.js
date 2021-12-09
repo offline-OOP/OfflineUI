@@ -1,6 +1,6 @@
 import Search from '../components/Search/Search';
 import scheme from '../components/Input/Input.color';
-import { WHITE } from '../utils/ColorSchemeManager';
+import { WHITE } from '../colors/colors';
 
 export default {
   title: 'Компоненты/Search',

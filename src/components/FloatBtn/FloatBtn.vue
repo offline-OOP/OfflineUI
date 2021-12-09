@@ -11,16 +11,13 @@
 
 <script>
 
-import ColorScheme from '../../mixins/ColorScheme';
+import ColorScheme from '../../colors/ColorScheme';
 import scheme from './FloatBtn.color';
-
-const color = scheme.prop;
 
 export default {
   name: 'FloatBtn',
   mixins: [ColorScheme],
   props: {
-    color,
     active: {
       type: Boolean,
       default: false,
@@ -30,8 +27,8 @@ export default {
       default: false,
     },
   },
-  created() {
-    this.initScheme(scheme);
-  },
+  data: () => ({
+    scheme
+  })
 };
 </script>

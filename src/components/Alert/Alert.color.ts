@@ -1,7 +1,5 @@
-import {
-  ColorSchemeManager,
-  WARNING, INFO, DANGER,
-} from '../../utils/ColorSchemeManager';
+import ColorSchemeManager from '../../colors/ColorSchemeManager';
+import {WARNING, INFO, DANGER}  from '../../colors/colors';
 
 export const AlertScheme: ColorSchemeManager = new ColorSchemeManager(INFO);
 AlertScheme.write(INFO, 'text-white bg-info');
