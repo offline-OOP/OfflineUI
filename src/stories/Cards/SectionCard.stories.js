@@ -1,12 +1,11 @@
-import EventCoverTemplate from "../../templates/EventCoverTemplate/EventCoverTemplate";
+import SectionCard from "../../components/SectionCard/SectionCard";
 import Avatar from "../../components/Avatar/Avatar";
-import Card from "../../components/Card/Card";
-import scheme from "../../components/Card/Card.color";
+import scheme from "../../components/SectionCard/SectionCard.color";
 import {WHITE} from "../../colors/colors";
 
 export default {
-    title: 'Шаблоны/EventCoverTemplate',
-    component: EventCoverTemplate,
+    title: 'Карточки/SectionCard',
+    component: SectionCard,
     argTypes: {
         color: {
             control: {type: 'select'},
@@ -16,15 +15,18 @@ export default {
 }
 
 export const Placeholder = (args) => ({
-    components: {EventCoverTemplate},
+    components: {SectionCard},
     setup: () => ({...args}),
     template: `
-      <EventCoverTemplate />
+      <SectionCard :color="color" />
     `
 })
+Placeholder.args = {
+    color: WHITE
+}
 
-export const InCard = (args) => ({
-    components: {EventCoverTemplate, Card, Avatar},
+export const Default = (args) => ({
+    components: {SectionCard, Avatar},
     data: () => ({
         img: {
             src: 'https://www.photogorky.ru/photos/f1ac8ec12016c5a9777f8c8f77aec48b.jpg',
@@ -44,24 +46,22 @@ export const InCard = (args) => ({
         }, 5000)
     },
     template: `
-      <Card :color="color">
-        <EventCoverTemplate :color="color">
-          <template #avatar>
-            <Avatar v-if="isLoad" :to="to" :size="size" :img="img"/>
-          </template>
+      <SectionCard :color="color">
+        <template #avatar>
+          <Avatar v-if="isLoad" :to="to" :size="size" :img="img"/>
+        </template>
+        <template v-if="isLoad">
+          {{text}}
+        </template>
+        <template #time>
           <template v-if="isLoad">
-              {{text}}
-            </template>
-            <template #time>
-              <template v-if="isLoad">
-                {{time}}
-              </template>
-            </template>
-          </EventCoverTemplate>
-      </Card>
+            {{time}}
+          </template>
+        </template>
+      </SectionCard>
     `
 })
-InCard.args = {
+Default.args = {
     color: WHITE,
     isLoad: false
 }
